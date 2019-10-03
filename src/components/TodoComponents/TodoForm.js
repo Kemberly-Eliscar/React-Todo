@@ -8,6 +8,7 @@ class ToDoForm extends React.Component{
         this.state = {
             taskItem : ''
         };
+        this.baseState = this.state.taskItem
     }
 
     handleChange = e => {
@@ -21,14 +22,19 @@ class ToDoForm extends React.Component{
     submitItem = e => {
         e.preventDefault()
 
+        const taskItem = this.state.taskItem
+
         this.props.addTask(this.state.taskItem)
 
 
         this.setState({
             taskItem : ''
         })
+    }
 
-        console.log(this.state)
+    clearCompleted = event => {
+        event.preventDefault()
+        this.props.clearCompleted()
     }
 
     render() {
@@ -43,7 +49,8 @@ class ToDoForm extends React.Component{
                         onChange = {this.handleChange}
                         />
                 </Form.Field>
-                <Button type="submit">Submit</Button>
+                <Button type="submit">Add To Do</Button>
+                <Button type="button" onClick = {this.clearCompleted}>Clear Completed</Button>
             </Form>
         );
     }
