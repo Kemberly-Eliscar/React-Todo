@@ -1,13 +1,14 @@
 import React from 'react';
 import 'semantic-ui-css/semantic.min.css'
 
+
 import TodoList from './components/TodoComponents/TodoList'
 import ToDoForm from './components/TodoComponents/TodoForm'
 
 const toDoList = [
 
   {
-    task : 'Organize Garage',
+    task : '',
     id : '123',
     completed : false
   }
